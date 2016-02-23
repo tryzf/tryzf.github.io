@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Xiantan | My Octopress Blog]]></title>
+  <link href="http://tryzf.github.io/blog/categories/xiantan/atom.xml" rel="self"/>
+  <link href="http://tryzf.github.io/"/>
+  <updated>2016-02-23T19:22:31+08:00</updated>
+  <id>http://tryzf.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[This Two Blog]]></title>
+    <link href="http://tryzf.github.io/blog/2016/02/22/tryzf-01/"/>
+    <updated>2016-02-22T22:12:23+08:00</updated>
+    <id>http://tryzf.github.io/blog/2016/02/22/tryzf-01</id>
+    <content type="html"><![CDATA[<h2>This two blog</h2>
+
+<blockquote><p>blog</p></blockquote>
+]]></content>
+  </entry>
+  
+</feed>
