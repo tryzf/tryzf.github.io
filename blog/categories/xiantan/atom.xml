@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Xiantan | Blog Like a Hacker]]></title>
+  <title><![CDATA[Category: xiantan | Blog Like a Hacker]]></title>
   <link href="http://tryzf.github.io/blog/categories/xiantan/atom.xml" rel="self"/>
   <link href="http://tryzf.github.io/"/>
-  <updated>2016-02-24T00:00:14+08:00</updated>
+  <updated>2016-02-24T00:39:45+08:00</updated>
   <id>http://tryzf.github.io/</id>
   <author>
     <name><![CDATA[tryzf]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[This Two Blog]]></title>
+    <title type="html"><![CDATA[this two blog]]></title>
     <link href="http://tryzf.github.io/blog/2016/02/22/tryzf-01/"/>
     <updated>2016-02-22T22:12:23+08:00</updated>
     <id>http://tryzf.github.io/blog/2016/02/22/tryzf-01</id>

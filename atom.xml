@@ -4,7 +4,7 @@
   <title><![CDATA[Blog Like a Hacker]]></title>
   <link href="http://tryzf.github.io/atom.xml" rel="self"/>
   <link href="http://tryzf.github.io/"/>
-  <updated>2016-02-24T00:00:14+08:00</updated>
+  <updated>2016-02-24T00:39:45+08:00</updated>
   <id>http://tryzf.github.io/</id>
   <author>
     <name><![CDATA[tryzf]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[This One Git Github]]></title>
+    <title type="html"><![CDATA[this one git  github]]></title>
     <link href="http://tryzf.github.io/blog/2016/02/23/one/"/>
     <updated>2016-02-23T00:13:09+08:00</updated>
     <id>http://tryzf.github.io/blog/2016/02/23/one</id>
@@ -25,7 +25,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[This Two Blog]]></title>
+    <title type="html"><![CDATA[this two blog]]></title>
     <link href="http://tryzf.github.io/blog/2016/02/22/tryzf-01/"/>
     <updated>2016-02-22T22:12:23+08:00</updated>
     <id>http://tryzf.github.io/blog/2016/02/22/tryzf-01</id>
@@ -36,7 +36,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Ruby博客]]></title>
+    <title type="html"><![CDATA[ruby博客]]></title>
     <link href="http://tryzf.github.io/blog/2016/02/22/tryzf/"/>
     <updated>2016-02-22T21:26:20+08:00</updated>
     <id>http://tryzf.github.io/blog/2016/02/22/tryzf</id>
