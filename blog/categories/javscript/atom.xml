@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Blog Like a Hacker]]></title>
-  <link href="http://tryzf.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: javscript | Blog Like a Hacker]]></title>
+  <link href="http://tryzf.github.io/blog/categories/javscript/atom.xml" rel="self"/>
   <link href="http://tryzf.github.io/"/>
   <updated>2016-02-26T22:59:20+08:00</updated>
   <id>http://tryzf.github.io/</id>
@@ -33,17 +33,6 @@
 <li><p>利用闭包创建可以访问私有变量和函数的特权函数，（<code>这里说到的特权应该是指可以访问函数内部的变量</code>）</p></li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[ruby博客]]></title>
-    <link href="http://tryzf.github.io/blog/2016/02/22/tryzf/"/>
-    <updated>2016-02-22T21:26:20+08:00</updated>
-    <id>http://tryzf.github.io/blog/2016/02/22/tryzf</id>
-    <content type="html"><![CDATA[<h1>2016年2/24/1：05</h1>
-
-<blockquote><p>用octopress成功搭建了个人博客，并部署到了github上。虽然整个过程都是根据教材走，但都是第一次使用git、github，还有环境的问题，也花费了挺长时间才搞好。这个过程学习的东西很多，git的简单使用，还有最让我兴奋的是自己在github上部署了自己的第一个项目。</p></blockquote>
 ]]></content>
   </entry>
   
