@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Blog Like a Hacker]]></title>
+  <title><![CDATA[web -samll- 宇]]></title>
   <link href="http://tryzf.github.io/atom.xml" rel="self"/>
   <link href="http://tryzf.github.io/"/>
-  <updated>2016-02-27T13:24:32+08:00</updated>
+  <updated>2016-02-27T14:54:37+08:00</updated>
   <id>http://tryzf.github.io/</id>
   <author>
     <name><![CDATA[tryzf]]></name>
