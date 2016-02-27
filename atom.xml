@@ -4,7 +4,7 @@
   <title><![CDATA[Blog Like a Hacker]]></title>
   <link href="http://tryzf.github.io/atom.xml" rel="self"/>
   <link href="http://tryzf.github.io/"/>
-  <updated>2016-02-26T22:59:20+08:00</updated>
+  <updated>2016-02-27T13:24:32+08:00</updated>
   <id>http://tryzf.github.io/</id>
   <author>
     <name><![CDATA[tryzf]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[nodejs在window下的安装]]></title>
+    <link href="http://tryzf.github.io/blog/2016/02/27/nodejs/"/>
+    <updated>2016-02-27T13:00:37+08:00</updated>
+    <id>http://tryzf.github.io/blog/2016/02/27/nodejs</id>
+    <content type="html"><![CDATA[<h1>在window8下express -e 无效的问题</h1>
+
+<h6>今天拿起了前几天买的node.js实战的书，开始nodejs实战之旅。我的电脑是window8，node的环境在以前就搭建好的。不过今天在初始化一个express项目的时候就遇到了问题。</h6>
+
+<h6>书上说新建一个工程，打开命令行，输入：<code>express -e blog</code></h6>
+
+<h6><code>blog</code>为项目名,命令行出错了!!!提示是无效的命令，书上不是说max、linux、windows都适用吗~~~刚开始就卡住了。心里有点小赛赛，已是通过bing.com，找啊找…………终于找到了有人发现问题的所在。</h6>
+
+<h3>原来是我的express是4.0.0 ，把express改成3.5.0即可运行express 命令。</h3>
+
+<pre><code> npm install -g express@3.5.0 
+</code></pre>
+
+<blockquote><p>在创建好目录，在进入该目录，<code>npm start</code>，ok站点就跑起来了。</p></blockquote>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[2016_2_26]]></title>
