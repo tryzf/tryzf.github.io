@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[web -samll- 宇]]></title>
+  <title><![CDATA[tryzf的博客]]></title>
   <link href="http://tryzf.github.io/atom.xml" rel="self"/>
   <link href="http://tryzf.github.io/"/>
-  <updated>2016-02-27T14:54:37+08:00</updated>
+  <updated>2016-02-29T23:38:16+08:00</updated>
   <id>http://tryzf.github.io/</id>
   <author>
     <name><![CDATA[tryzf]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[毕业设计]]></title>
+    <link href="http://tryzf.github.io/blog/2016/02/29/bs/"/>
+    <updated>2016-02-29T23:13:48+08:00</updated>
+    <id>http://tryzf.github.io/blog/2016/02/29/bs</id>
+    <content type="html"><![CDATA[<h2>毕业设计01</h2>
+
+<h5>又是一个毕业季，现在变我愁着作业设计乍整好。多媒体班的同学搞小片，搞ps，想想自己也就会做网页。那也就不多想了毕业设计搞个小网站好了。考虑到实用性，那就搞一个博客，用nodejs写一个博客网站。环境已经搭好，模版引擎用ejs，数据库用mongodb，别的不会先把首页给搭出来。进过参考网上的一些设计，晚上简单的搭好首页。明天继续…………</h5>
+
+<p><img src="http://ww1.sinaimg.cn/bmiddle/9ea24dfdgw1f1gmnxsmumj211y0lcgrw.jpg" alt="images" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[nodejs在window下的安装]]></title>
