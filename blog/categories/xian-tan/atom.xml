@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 闲谈 | tryzf的博客]]></title>
+  <link href="http://tryzf.github.io/blog/categories/xian-tan/atom.xml" rel="self"/>
+  <link href="http://tryzf.github.io/"/>
+  <updated>2016-03-02T00:13:36+08:00</updated>
+  <id>http://tryzf.github.io/</id>
+  <author>
+    <name><![CDATA[tryzf]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[毕业设计02]]></title>
+    <link href="http://tryzf.github.io/blog/2016/03/01/02/"/>
+    <updated>2016-03-01T23:12:35+08:00</updated>
+    <id>http://tryzf.github.io/blog/2016/03/01/02</id>
+    <content type="html"><![CDATA[<h2>毕业设计02</h2>
+
+<h5>今天是毕业设计第二天，昨天主要做了home页面，只是搭建了简答的头部和主要内容的左右模块，晚上主要给home页添加了一个弹筒，主要作用是让滚动条的滚动距离为0，当home页内容过多，需滚动垂直滚动条到底部。在这个时候如果要去顶部，再滚回去的话很麻烦。所以就制作了一个置顶按钮。</h5>
+
+<p>&lt;% codeblock lang:javscript %></p>
+
+<pre><code>function GoTop() {
+    var fixed_obj = $("#js_fiexd_module");
+    $(window).scroll(function(){
+        var scroll_top = $(window).scrollTop();
+        if(scroll_top &gt; 560) {
+            fixed_obj.fadeIn(600).css({bottom:".3rem"});
+        }else{
+            fixed_obj.fadeOut(200);
+        } 
+
+    });
+    fixed_obj.on("click", function(){
+        $("html,body").animate({scrollTop:0},1000);
+        var wind_h = $(window).height();
+        fixed_obj.addClass("actives").animate({bottom:wind_h,opacity:0}, 1500, function(){
+            fixed_obj.css({opacity:1,display:"none",bottom:"-.5rem"}).removeClass('actives');
+        });
+    });
+}
+</code></pre>
+
+<p>&lt;% endcodeblock %></p>
+
+<blockquote><p>主要的jquery代码，样式为刚开始是一个圆，鼠标移入变子弹头，点击触发上面这个事件。</p></blockquote>
+
+<pre><code>    /*footer start*/
+    .fiexd_module {display: none; position:fixed;bottom:.3rem;right:.2rem;background-color:#fff;overflow:hidden;border-radius:50%;
+     width:.5rem;height:.5rem;font-size:.16rem;text-align: center;line-height:.5rem;color:#fff;background-color:#299982;cursor:pointer; 
+    transition:height 1s,line-height 1s;}
+    .fiexd_module:hover,.actives { height:1rem;line-height:1rem;border-top-right-radius:50%;border-top-left-radius: 50%;border-bottom-right-radius: 0;border-bottom-left-radius:0;  }
+    /*footer end*/
+
+    /*html*/
+    &lt;div id="js_fiexd_module" class="fiexd_module"&gt;Go&lt;/div&gt;
+</code></pre>
+
+<blockquote><p>其他页面主要是登录和注册。主要是一张大图为背景，使用到css3的背景模糊<code>filter: blur(3px)</code>和 主要内容的背景透明<code>background:rgba(0,0,0,.4)</code></p></blockquote>
+]]></content>
+  </entry>
+  
+</feed>

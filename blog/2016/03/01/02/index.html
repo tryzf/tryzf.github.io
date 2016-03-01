@@ -3,11 +3,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>nodejs在window下的安装 - tryzf的博客</title>
+	<title>毕业设计02 - tryzf的博客</title>
 	<meta name="author" content="tryzf">
 
 	
-	<meta name="description" content="在window8下express -e 无效的问题 今天拿起了前几天买的node.js实战的书，开始nodejs实战之旅。我的电脑是window8，node的环境在以前就搭建好的。不过今天在初始化一个express项目的时候就遇到了问题。 书上说新建一个工程，打开命令行，输入：express -e &hellip;">
+	<meta name="description" content="毕业设计02 今天是毕业设计第二天，昨天主要做了home页面，只是搭建了简答的头部和主要内容的左右模块，晚上主要给home页添加了一个弹筒，主要作用是让滚动条的滚动距离为0，当home页内容过多，需滚动垂直滚动条到底部。在这个时候如果要去顶部，再滚回去的话很麻烦。所以就制作了一个置顶按钮。 &lt &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -78,21 +78,50 @@
 	<div id="content" class="inner"><div>
 <article class="hentry" role="article">
   
-	<h2 class="title">Nodejs在window下的安装</h2>
-	<div class="entry-content"><h1>在window8下express -e 无效的问题</h1>
+	<h2 class="title">毕业设计02</h2>
+	<div class="entry-content"><h2>毕业设计02</h2>
 
-<h6>今天拿起了前几天买的node.js实战的书，开始nodejs实战之旅。我的电脑是window8，node的环境在以前就搭建好的。不过今天在初始化一个express项目的时候就遇到了问题。</h6>
+<h5>今天是毕业设计第二天，昨天主要做了home页面，只是搭建了简答的头部和主要内容的左右模块，晚上主要给home页添加了一个弹筒，主要作用是让滚动条的滚动距离为0，当home页内容过多，需滚动垂直滚动条到底部。在这个时候如果要去顶部，再滚回去的话很麻烦。所以就制作了一个置顶按钮。</h5>
 
-<h6>书上说新建一个工程，打开命令行，输入：<code>express -e blog</code></h6>
+<p>&lt;% codeblock lang:javscript %></p>
 
-<h6><code>blog</code>为项目名,命令行出错了!!!提示是无效的命令，书上不是说max、linux、windows都适用吗~~~刚开始就卡住了。心里有点小赛赛，已是通过bing.com，找啊找…………终于找到了有人发现问题的所在。</h6>
+<pre><code>function GoTop() {
+    var fixed_obj = $("#js_fiexd_module");
+    $(window).scroll(function(){
+        var scroll_top = $(window).scrollTop();
+        if(scroll_top &gt; 560) {
+            fixed_obj.fadeIn(600).css({bottom:".3rem"});
+        }else{
+            fixed_obj.fadeOut(200);
+        } 
 
-<h3>原来是我的express是4.0.0 ，把express改成3.5.0即可运行express 命令。</h3>
-
-<pre><code> npm install -g express@3.5.0 
+    });
+    fixed_obj.on("click", function(){
+        $("html,body").animate({scrollTop:0},1000);
+        var wind_h = $(window).height();
+        fixed_obj.addClass("actives").animate({bottom:wind_h,opacity:0}, 1500, function(){
+            fixed_obj.css({opacity:1,display:"none",bottom:"-.5rem"}).removeClass('actives');
+        });
+    });
+}
 </code></pre>
 
-<blockquote><p>在创建好目录，在进入该目录，<code>npm start</code>，ok站点就跑起来了。</p></blockquote>
+<p>&lt;% endcodeblock %></p>
+
+<blockquote><p>主要的jquery代码，样式为刚开始是一个圆，鼠标移入变子弹头，点击触发上面这个事件。</p></blockquote>
+
+<pre><code>    /*footer start*/
+    .fiexd_module {display: none; position:fixed;bottom:.3rem;right:.2rem;background-color:#fff;overflow:hidden;border-radius:50%;
+     width:.5rem;height:.5rem;font-size:.16rem;text-align: center;line-height:.5rem;color:#fff;background-color:#299982;cursor:pointer; 
+    transition:height 1s,line-height 1s;}
+    .fiexd_module:hover,.actives { height:1rem;line-height:1rem;border-top-right-radius:50%;border-top-left-radius: 50%;border-bottom-right-radius: 0;border-bottom-left-radius:0;  }
+    /*footer end*/
+
+    /*html*/
+    &lt;div id="js_fiexd_module" class="fiexd_module"&gt;Go&lt;/div&gt;
+</code></pre>
+
+<blockquote><p>其他页面主要是登录和注册。主要是一张大图为背景，使用到css3的背景模糊<code>filter: blur(3px)</code>和 主要内容的背景透明<code>background:rgba(0,0,0,.4)</code></p></blockquote>
 </div>
 
 
@@ -102,11 +131,11 @@
 
 
 
-Feb 27th, 2016</div>
+Mar 1st, 2016</div>
 	<div class="tags">
 
 
-	<a class='category' href='/blog/categories/nodejs/'>nodejs</a>
+	<a class='category' href='/blog/categories/xian-tan/'>闲谈</a>
 
 
 </div>
@@ -125,11 +154,11 @@ Feb 27th, 2016</div>
 
 
 
-Feb 27th, 2016
+Mar 1st, 2016
       
 
 
-	<a class='category' href='/blog/categories/nodejs/'>nodejs</a>
+	<a class='category' href='/blog/categories/xian-tan/'>闲谈</a>
 
 
 
@@ -163,10 +192,8 @@ Feb 27th, 2016
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2016/02/26/dddd/" title="Previous Post: 2016_2_26">&laquo; 2016_2_26</a>
+        <a class="basic-alignment left" href="/blog/2016/02/29/bs/" title="Previous Post: 毕业设计">&laquo; 毕业设计</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2016/02/29/bs/" title="Next Post: 毕业设计">毕业设计 &raquo;</a>
       
     </p>
   </footer>
@@ -175,7 +202,7 @@ Feb 27th, 2016
   <section>
     <h1>Comments</h1>
     <div id="disqus_thread" aria-live="polite"><!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="/blog/2016/02/27/nodejs" data-title="nodejs在window下的安装" data-url="http://tryzf.github.io/blog/2016/02/27/nodejs/"></div>
+	<div class="ds-thread" data-thread-key="/blog/2016/03/01/02" data-title="毕业设计02" data-url="http://tryzf.github.io/blog/2016/03/01/02/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">

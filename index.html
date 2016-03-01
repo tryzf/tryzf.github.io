@@ -7,7 +7,7 @@
 	<meta name="author" content="tryzf">
 
 	
-	<meta name="description" content="毕业设计01 又是一个毕业季，现在变我愁着作业设计乍整好。多媒体班的同学搞小片，搞ps，想想自己也就会做网页。那也就不多想了毕业设计搞个小网站好了。考虑到实用性，那就搞一个博客，用nodejs写一个博客网站。环境已经搭好，模版引擎用ejs，数据库用mongodb，别的不会先把首页给搭出来。 &hellip;">
+	<meta name="description" content="毕业设计02 今天是毕业设计第二天，昨天主要做了home页面，只是搭建了简答的头部和主要内容的左右模块，晚上主要给home页添加了一个弹筒，主要作用是让滚动条的滚动距离为0，当home页内容过多，需滚动垂直滚动条到底部。在这个时候如果要去顶部，再滚回去的话很麻烦。所以就制作了一个置顶按钮。 & &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -76,6 +76,82 @@
 		
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2016/03/01/02/">
+		
+			毕业设计02</a>
+	</h2>
+	<div class="entry-content">
+		<h2>毕业设计02</h2>
+
+<h5>今天是毕业设计第二天，昨天主要做了home页面，只是搭建了简答的头部和主要内容的左右模块，晚上主要给home页添加了一个弹筒，主要作用是让滚动条的滚动距离为0，当home页内容过多，需滚动垂直滚动条到底部。在这个时候如果要去顶部，再滚回去的话很麻烦。所以就制作了一个置顶按钮。</h5>
+
+<p>&lt;% codeblock lang:javscript %></p>
+
+<pre><code>function GoTop() {
+    var fixed_obj = $("#js_fiexd_module");
+    $(window).scroll(function(){
+        var scroll_top = $(window).scrollTop();
+        if(scroll_top &gt; 560) {
+            fixed_obj.fadeIn(600).css({bottom:".3rem"});
+        }else{
+            fixed_obj.fadeOut(200);
+        } 
+
+    });
+    fixed_obj.on("click", function(){
+        $("html,body").animate({scrollTop:0},1000);
+        var wind_h = $(window).height();
+        fixed_obj.addClass("actives").animate({bottom:wind_h,opacity:0}, 1500, function(){
+            fixed_obj.css({opacity:1,display:"none",bottom:"-.5rem"}).removeClass('actives');
+        });
+    });
+}
+</code></pre>
+
+<p>&lt;% endcodeblock %></p>
+
+<blockquote><p>主要的jquery代码，样式为刚开始是一个圆，鼠标移入变子弹头，点击触发上面这个事件。</p></blockquote>
+
+<pre><code>    /*footer start*/
+    .fiexd_module {display: none; position:fixed;bottom:.3rem;right:.2rem;background-color:#fff;overflow:hidden;border-radius:50%;
+     width:.5rem;height:.5rem;font-size:.16rem;text-align: center;line-height:.5rem;color:#fff;background-color:#299982;cursor:pointer; 
+    transition:height 1s,line-height 1s;}
+    .fiexd_module:hover,.actives { height:1rem;line-height:1rem;border-top-right-radius:50%;border-top-left-radius: 50%;border-bottom-right-radius: 0;border-bottom-left-radius:0;  }
+    /*footer end*/
+
+    /*html*/
+    &lt;div id="js_fiexd_module" class="fiexd_module"&gt;Go&lt;/div&gt;
+</code></pre>
+
+<blockquote><p>其他页面主要是登录和注册。主要是一张大图为背景，使用到css3的背景模糊<code>filter: blur(3px)</code>和 主要内容的背景透明<code>background:rgba(0,0,0,.4)</code></p></blockquote>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+Mar 1st, 2016</div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/xian-tan/'>闲谈</a>
+
+
+</div>
+	
+</div>
+</article>
 
 
     <article class="post">
