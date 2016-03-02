@@ -3,11 +3,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>2016_2_26 - tryzf的博客</title>
+	<title>express session的问题 - tryzf的博客</title>
 	<meta name="author" content="tryzf">
 
 	
-	<meta name="description" content="用构建模块化开发摒弃全局变量的使用 JavaScript语言精粹 ##语言精粹一书中在讲Module的时候提到：通过使用函数和闭包来构建模块，几乎可以完全摒弃全局变量的使用。 什么是模块呢？ #模块：是一个提供接口却隐藏状态与实现的函数或对象。 模块模式一般形式是：一个定义了私有变量和函数的函数， &hellip;">
+	<meta name="description" content="Cannot set property &lsquo;user&rsquo; of undefined 注册看起来简单，但在实际操作中遇到很多问题，主要是不会太会调试nodejs代码，还有就是node的一些知识没有搞明白。花费了很长时间才完成注册的功能，主要花费的时间在上面那个错误。 &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -78,22 +78,10 @@
 	<div id="content" class="inner"><div>
 <article class="hentry" role="article">
   
-	<h2 class="title">2016_2_26</h2>
-	<div class="entry-content"><h1>用构建模块化开发摒弃全局变量的使用</h1>
+	<h2 class="title">Express Session的问题</h2>
+	<div class="entry-content"><h1>Cannot set property &lsquo;user&rsquo; of undefined</h1>
 
-<blockquote><p>JavaScript语言精粹</p></blockquote>
-
-<h6>##语言精粹一书中在讲<code>Module</code>的时候提到：通过使用函数和闭包来构建模块，几乎可以完全摒弃全局变量的使用。</h6>
-
-<h4>什么是模块呢？</h4>
-
-<h6>#模块：是一个提供接口却隐藏状态与实现的函数或对象。</h6>
-
-<ul>
-<li><p>模块模式一般形式是：一个定义了私有变量和函数的函数，就是所提到的闭包。（<code>闭包：我简单的认为就是一个函数包着一个函数的函数，说的有点拗口</code>）。</p></li>
-<li><p>利用闭包创建可以访问私有变量和函数的特权函数，（<code>这里说到的特权应该是指可以访问函数内部的变量</code>）</p></li>
-</ul>
-
+<blockquote><p>注册看起来简单，但在实际操作中遇到很多问题，主要是不会太会调试nodejs代码，还有就是node的一些知识没有搞明白。花费了很长时间才完成注册的功能，主要花费的时间在上面那个错误。一直提示<code>user</code>of undefined 看看代码该搞的都搞了。cookie也在session前面了，折腾了好久后来把app.use(app.router);移动session下面问题就没有再出现，原来是没有吧session传进去，所以一直为定义。虽然有点奔溃，但还是解决了。可以安心的睡觉了…………</p></blockquote>
 </div>
 
 
@@ -103,11 +91,11 @@
 
 
 
-Feb 26th, 2016</div>
+Mar 3rd, 2016</div>
 	<div class="tags">
 
 
-	<a class='category' href='/blog/categories/javscript/'>javscript</a>
+	<a class='category' href='/blog/categories/xian-shuo/'>闲说</a>
 
 
 </div>
@@ -126,11 +114,11 @@ Feb 26th, 2016</div>
 
 
 
-Feb 26th, 2016
+Mar 3rd, 2016
       
 
 
-	<a class='category' href='/blog/categories/javscript/'>javscript</a>
+	<a class='category' href='/blog/categories/xian-shuo/'>闲说</a>
 
 
 
@@ -164,10 +152,8 @@ Feb 26th, 2016
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2016/02/22/tryzf/" title="Previous Post: ruby博客">&laquo; ruby博客</a>
+        <a class="basic-alignment left" href="/blog/2016/03/01/02/" title="Previous Post: 毕业设计02">&laquo; 毕业设计02</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2016/02/27/nodejs/" title="Next Post: nodejs在window下的安装">nodejs在window下的安装 &raquo;</a>
       
     </p>
   </footer>
@@ -176,7 +162,7 @@ Feb 26th, 2016
   <section>
     <h1>Comments</h1>
     <div id="disqus_thread" aria-live="polite"><!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="/blog/2016/02/26/dddd" data-title="2016_2_26" data-url="http://tryzf.github.io/blog/2016/02/26/dddd/"></div>
+	<div class="ds-thread" data-thread-key="/blog/2016/03/03/node-session" data-title="express session的问题" data-url="http://tryzf.github.io/blog/2016/03/03/node-session/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">

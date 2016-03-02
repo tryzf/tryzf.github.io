@@ -4,7 +4,7 @@
   <title><![CDATA[tryzf的博客]]></title>
   <link href="http://tryzf.github.io/atom.xml" rel="self"/>
   <link href="http://tryzf.github.io/"/>
-  <updated>2016-03-02T00:13:36+08:00</updated>
+  <updated>2016-03-03T00:41:40+08:00</updated>
   <id>http://tryzf.github.io/</id>
   <author>
     <name><![CDATA[tryzf]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[express session的问题]]></title>
+    <link href="http://tryzf.github.io/blog/2016/03/03/node-session/"/>
+    <updated>2016-03-03T00:27:07+08:00</updated>
+    <id>http://tryzf.github.io/blog/2016/03/03/node-session</id>
+    <content type="html"><![CDATA[<h1>Cannot set property &lsquo;user&rsquo; of undefined</h1>
+
+<blockquote><p>注册看起来简单，但在实际操作中遇到很多问题，主要是不会太会调试nodejs代码，还有就是node的一些知识没有搞明白。花费了很长时间才完成注册的功能，主要花费的时间在上面那个错误。一直提示<code>user</code>of undefined 看看代码该搞的都搞了。cookie也在session前面了，折腾了好久后来把app.use(app.router);移动session下面问题就没有再出现，原来是没有吧session传进去，所以一直为定义。虽然有点奔溃，但还是解决了。可以安心的睡觉了…………</p></blockquote>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[毕业设计02]]></title>
