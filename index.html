@@ -7,7 +7,7 @@
 	<meta name="author" content="tryzf">
 
 	
-	<meta name="description" content="Cannot set property &lsquo;user&rsquo; of undefined 注册看起来简单，但在实际操作中遇到很多问题，主要是不会太会调试nodejs代码，还有就是node的一些知识没有搞明白。花费了很长时间才完成注册的功能，主要花费的时间在上面那个错误。 &hellip;">
+	<meta name="description" content="今天在用node获取mongodb里面的数据时候遇到了一个问题，获取数据的时候一直失败，err显示mongodb关闭。 SetBase.prototype.get = function(callback) { var name = this.name.name; mongodb.open( &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -76,6 +76,135 @@
 		
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2016/03/13/node/">
+		
+			和mongodb有关的问题</a>
+	</h2>
+	<div class="entry-content">
+		<blockquote><p>今天在用node获取mongodb里面的数据时候遇到了一个问题，获取数据的时候一直失败，err显示mongodb关闭。</p></blockquote>
+
+<pre><code>SetBase.prototype.get = function(callback) {
+    var name = this.name.name;
+    mongodb.open(function(err, db) {
+        if(err) {
+            return callback(err);
+        }
+        db.collection('base', function(err, collection) {
+            if(err) {
+                collection.close();
+                return callback(err);
+            }
+            collection.findOne({'name':name}, function(err, doc){
+                mongodb.close();
+                if(err) {
+                    return callback(err);
+                }
+                callback(null, doc);
+            });
+        });
+
+    });
+}
+</code></pre>
+
+<p>以上是获取某条数据的方法，其他获取数据的方法也类似。遇到这个问题的情况是在：同一个页面打了两条的ajax获取不同collection下的数据，就造成了，后面获取数据的就会出错。<code>server localhost:27017 sockets closed</code>这个错误就是<code>mongodb.close();</code>造成的。因为有条请求成功后，就关闭了数据库，而紧跟其后的请求已经才操作一般发现被mongodb.close();所以就出错。</p>
+
+<blockquote><p>我用了一个比较笨的方法解决了，这个问题。那就是在客服端用回调。让一个请求结束后在发起另一个请求，当然这也是一个很糟糕的解决方法。
+为了更好的解决这个问题，就是在服务端写一个打开数据库方法。</p></blockquote>
+
+<pre><code>var mongodb = require('mongodb');
+
+var db_server = new mongodb.Server('127.0.0.1', 27017);
+var db = mongodb.Db('blog', db_server);
+var _instance = null;
+function get_collection(name, callback){
+    var collection = collection_map[name];
+    if (collection){
+        callback(null, collection);
+        return;
+    }
+
+    if (_instance == null){
+        db.open(function(err, db){
+            if(err){
+                callback(err);
+                return;
+            }
+            _instance = db;
+            get_collection(name, callback);
+        });
+    }else{
+        _instance.collection(name, function(err, collection){
+                if(err){
+                callback(err);
+                return;
+            }
+            collection_map[name] = collection;
+            get_collection(name, callback);
+        });
+    }
+}
+</code></pre>
+
+<p>让其在关闭状态的时候再打开一次。这样的解决方法就比较好，而且也可以解决我以上代码的冗余。</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+Mar 13th, 2016</div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/mongodb/'>mongodb</a>, <a class='category' href='/blog/categories/node/'>node</a>
+
+
+</div>
+	
+</div>
+</article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2016/03/07/node/">
+		
+			Node</a>
+	</h2>
+	<div class="entry-content">
+		
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+Mar 7th, 2016</div>
+	<div class="tags">
+
+</div>
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -368,6 +497,7 @@ Feb 22nd, 2016</div>
 
     tryzf
 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257951965'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1257951965%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
 </footer>
 	<script src="/javascripts/slash.js"></script>
 <script src="/javascripts/jquery.fancybox.pack.js"></script>

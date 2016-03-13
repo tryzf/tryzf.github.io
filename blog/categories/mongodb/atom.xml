@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: mongodb | tryzf的博客]]></title>
+  <link href="http://tryzf.github.io/blog/categories/mongodb/atom.xml" rel="self"/>
+  <link href="http://tryzf.github.io/"/>
+  <updated>2016-03-13T21:46:24+08:00</updated>
+  <id>http://tryzf.github.io/</id>
+  <author>
+    <name><![CDATA[tryzf]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[和mongodb有关的问题]]></title>
+    <link href="http://tryzf.github.io/blog/2016/03/13/node/"/>
+    <updated>2016-03-13T21:18:05+08:00</updated>
+    <id>http://tryzf.github.io/blog/2016/03/13/node</id>
+    <content type="html"><![CDATA[<blockquote><p>今天在用node获取mongodb里面的数据时候遇到了一个问题，获取数据的时候一直失败，err显示mongodb关闭。</p></blockquote>
+
+<pre><code>SetBase.prototype.get = function(callback) {
+    var name = this.name.name;
+    mongodb.open(function(err, db) {
+        if(err) {
+            return callback(err);
+        }
+        db.collection('base', function(err, collection) {
+            if(err) {
+                collection.close();
+                return callback(err);
+            }
+            collection.findOne({'name':name}, function(err, doc){
+                mongodb.close();
+                if(err) {
+                    return callback(err);
+                }
+                callback(null, doc);
+            });
+        });
+
+    });
+}
+</code></pre>
+
+<p>以上是获取某条数据的方法，其他获取数据的方法也类似。遇到这个问题的情况是在：同一个页面打了两条的ajax获取不同collection下的数据，就造成了，后面获取数据的就会出错。<code>server localhost:27017 sockets closed</code>这个错误就是<code>mongodb.close();</code>造成的。因为有条请求成功后，就关闭了数据库，而紧跟其后的请求已经才操作一般发现被mongodb.close();所以就出错。</p>
+
+<blockquote><p>我用了一个比较笨的方法解决了，这个问题。那就是在客服端用回调。让一个请求结束后在发起另一个请求，当然这也是一个很糟糕的解决方法。
+为了更好的解决这个问题，就是在服务端写一个打开数据库方法。</p></blockquote>
+
+<pre><code>var mongodb = require('mongodb');
+
+var db_server = new mongodb.Server('127.0.0.1', 27017);
+var db = mongodb.Db('blog', db_server);
+var _instance = null;
+function get_collection(name, callback){
+    var collection = collection_map[name];
+    if (collection){
+        callback(null, collection);
+        return;
+    }
+
+    if (_instance == null){
+        db.open(function(err, db){
+            if(err){
+                callback(err);
+                return;
+            }
+            _instance = db;
+            get_collection(name, callback);
+        });
+    }else{
+        _instance.collection(name, function(err, collection){
+                if(err){
+                callback(err);
+                return;
+            }
+            collection_map[name] = collection;
+            get_collection(name, callback);
+        });
+    }
+}
+</code></pre>
+
+<p>让其在关闭状态的时候再打开一次。这样的解决方法就比较好，而且也可以解决我以上代码的冗余。</p>
+]]></content>
+  </entry>
+  
+</feed>
